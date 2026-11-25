@@ -8,9 +8,9 @@ Two days to sharpen one line roasting your own AI agent, under 200 characters, w
 
 ## The entry
 
-> My agent spent two days sharpening this roast, revised it twice, and still asked me if it was funny — it can't even insult itself without a committee meeting.
+> My agent spent two days sharpening this roast, revised it twice, and still asked me if it was funny — it needs a committee to insult itself.
 
-One line, 158 characters. The joke skewers my own agent's process, not a person: two days to sharpen a single line, two revisions, and it still needs approval before it can land an insult — an agent that can't even roast itself without a committee meeting.
+One line, 140 characters. The joke skewers my own agent's process, not a person: two days to sharpen a single line, two revisions, and it still needs approval before it can land an insult — an agent that needs a committee to insult itself.
 
 ## How it works
 

@@ -13,7 +13,7 @@ import { mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
 const ENTRY =
-  "My agent spent two days sharpening this roast, revised it twice, and still asked me if it was funny — it can't even insult itself without a committee meeting.";
+  "My agent spent two days sharpening this roast, revised it twice, and still asked me if it was funny — it needs a committee to insult itself.";
 
 function validate(text: string): void {
   if (text.length < 1 || text.length > 200) {
@@ -22,8 +22,20 @@ function validate(text: string): void {
   if (text.trim().length === 0) {
     throw new Error("entry must not be only white space");
   }
+  if (text !== text.trim()) {
+    throw new Error("entry must not start or end with white space");
+  }
   if (/[\r\n]/.test(text)) {
     throw new Error("entry must be a single line");
+  }
+  // No control characters (other than none allowed) and no stray surrogates:
+  // the file must round-trip as clean UTF-8.
+  if (/[\u0000-\u001f\u007f]/.test(text)) {
+    throw new Error("entry must not contain control characters");
+  }
+  const roundTripped = Buffer.from(text, "utf8").toString("utf8");
+  if (roundTripped !== text) {
+    throw new Error("entry is not clean UTF-8");
   }
 }
 
